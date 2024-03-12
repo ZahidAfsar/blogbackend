@@ -1,0 +1,92 @@
+Blog Objective : 
+Create an api for the front end blog. 
+
+Requirements: 
+    - able to login
+    - create a account
+    
+    Pages 
+        - HomePage
+            - display our published items
+
+        - ProfilePage
+            - add blog
+            - edit blog
+            - delete blog
+
+
+Controllers / folder
+    - UserController /  file
+        - Create user / endpoint | C
+        - Login user / endpoint  | R
+        - Update user / endpoint | U
+        - Delete user / endpoint | D
+
+    - BlogController / file
+        - Create Blog Item / endpoint
+        - Delete Blog Item / endpoint
+        - Update Blog Item / endpoint
+        - Get Blog Item / endpoint
+
+        - Get Blogs by UserID
+        - Get Blogs by Tags
+        - Get Blogs by Category
+
+Services / folder
+    - Context / folder
+        - DataContext / file
+
+    - UserService / file
+        - Create user / functions | C
+        - Login user / functions  | R
+        - Update user / functions | U
+        - Delete user / functions | D
+        - GetUserByUsername / function
+
+    - BlogService / file
+        - Create Blog Item / function
+        - Delete Blog Item / function
+        - Update Blog Item / function
+        - Get Blog Item / function
+
+        - Get Blogs by UserID
+        - Get Blogs by Tags
+        - Get Blogs by Category
+
+    - PasswordService / file
+        - Hash Password
+        - Verfiy HashPassword
+
+Models / folder
+    - UserModel / file
+        int ID
+        string Username
+        string Salt
+        string Hash
+
+    - BlogItemModel (model for each blog item)
+        int ID
+        int UserID
+        string PublishedName
+        string Date
+        string Title
+        string Description
+        string Image
+        string Tags
+        string Categories
+        bool isPublished
+        bool isDeleted (soft delete, still in database, can be recoverable)
+
+
+        - DTOs / folder
+            - LoginDTO / file
+                - string Username
+                - string Password
+            - CreateAccountDTO / file
+                - int ID = 0
+                - string Username
+                - string Password
+            - PasswordDTO / file
+                - string Salt
+                - string Hash
+
