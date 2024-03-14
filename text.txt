@@ -90,3 +90,9 @@ Models / folder
                 - string Salt
                 - string Hash
 
+
+username:
+BlogLogin
+
+password:
+Password123!@#
