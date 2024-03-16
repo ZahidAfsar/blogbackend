@@ -25,6 +25,8 @@ namespace blogbackend.Controllers
             // if user does not exists, create new account
             // else return false
 
+            [HttpPost]
+            [Route("AddUser")]
             public bool AddUser(CreateAccountDTO UserToAdd){
                 return _data.AddUser(UserToAdd);
             }
