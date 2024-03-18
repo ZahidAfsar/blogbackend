@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using blogbackend.Models;
 using blogbackend.Models.DTO;
 using blogbackend.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,11 @@ namespace blogbackend.Controllers
         }
 
         // Login Endpoint 
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] LoginDTO User){
+            return _data.Login(User);
+        }
 
         // AddUser Endpoint
             // if user already exists
@@ -32,7 +38,24 @@ namespace blogbackend.Controllers
             }
 
         // UpdateUser Endpoint
+        [HttpPut]
+        [Route("UpdateUser")]
+        public bool UpdateUser(UserModel userToUpdate){
+            return _data.UpdateUser(userToUpdate);
+        }
+
+        [HttpPut]
+        [Route("UpdateUser/{id}/{username}")]
+        public bool UpdateUser(int id, string username){
+            return _data.UpdateUsername(id, username);
+        }
 
         // DeleteUser Endpoint
+        [HttpDelete]
+        [Route("DeleteUser/{userToDelete}")]
+        public bool DeleteUser(string userToDelete){
+            return _data.DeleteUser(userToDelete);
+        }
+
     }
 }
