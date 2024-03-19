@@ -57,5 +57,11 @@ namespace blogbackend.Controllers
             return _data.DeleteUser(userToDelete);
         }
 
+        [HttpGet]
+        [Route("GetUserByUsername/{username}")]
+        public UserIdDTO GetUserByUsername(string username){
+            return _data.GetUserIdDTObyUsername(username);
+        }
+
     }
 }
